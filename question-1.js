@@ -31,7 +31,8 @@ const array2 = ["z", "c", "l"];
 
 console.log(findCommon(array1, array2));
 
-// Another way--> with JavaScript Built-in function
+// Another way--> with JavaScript Built-in function -->
+// only for experts but not readable
 
 const findCommon1 = (arr1, arr2) => {
   return arr1.some((item) => arr2.includes(item));
