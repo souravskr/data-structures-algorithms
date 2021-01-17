@@ -26,4 +26,6 @@ const givenSum = 8;
 // console.log(findMatchingPairSum(numberCollection1, 8));
 findMatchingPairSum(numberCollection1, givenSum);
 
+// Time complexity 0(n^2) --> Space Complexity is O(1);
+
 // Onternative way
