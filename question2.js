@@ -5,6 +5,8 @@
 // Some element may appears twice but we can't add same(index) element.
 // All the numbers are integer
 
+// source: https://www.youtube.com/watch?v=XKu_SEDAykw
+
 // The worst solution
 
 const findMatchingPairSum = (collection, givenSum) => {
