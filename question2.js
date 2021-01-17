@@ -68,4 +68,4 @@ const findMatchingPairSum2 = (collection, givenSum) => {
 
 console.log(findMatchingPairSum2(numberCollection, 8));
 
-// Though its not the best way, but time complexity is 0(n) but space complexity is O(n).
+// Though its not the best way, but time complexity is 0(n) but space complexity is O(1).
