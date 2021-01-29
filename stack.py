@@ -45,6 +45,8 @@ print(mystack.peek())
 mystack.pop()
 mystack.pop()
 mystack.pop()
+mystack.pop()
 
 print(mystack)
 print(mystack.a_list)
+print(mystack.peek())
