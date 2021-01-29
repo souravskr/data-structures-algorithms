@@ -14,6 +14,11 @@ class Stack:
             return self.a_list.pop()
         return None
 
+    def peek(self):
+        if len(self.a_list) > 0:
+            return self.a_list[-1]
+        return None
+
     def __str__(self) -> str:
         return f"{self.a_list}"
 
@@ -35,6 +40,7 @@ mystack.pop()
 
 print(mystack)
 print(mystack.a_list)
+print(mystack.peek())
 
 mystack.pop()
 mystack.pop()
