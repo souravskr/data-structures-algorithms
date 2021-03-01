@@ -22,3 +22,6 @@ const reverseTheString2 = (takeTheString) => {
 };
 
 console.log(reverseTheString2(inputString));
+
+
+
