@@ -4,7 +4,7 @@ const inArr = [-1]
 
 // const maxItem = Math.max(...inArr)
 
-// Brute Force Method ==> Complexity is O(n^2)
+// Brute Force Method ==> Complexity is O(n^2) ==> Not accepted in Leetcode
 
 const maxSubArray = (inArr)=>{
 
