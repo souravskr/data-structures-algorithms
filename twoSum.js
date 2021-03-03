@@ -58,7 +58,7 @@ const target = 6
 
 // }
 
-const twoSum = function(nums, target) {
+const twoSum = (nums, target) =>{
     const nums1 = [...nums]
     nums.sort((a, b)=> a-b)
     const output = []
