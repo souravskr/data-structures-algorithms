@@ -26,8 +26,7 @@ const maxSubArray = (inArr)=>{
             }
 
 
-            let tempArr = inArr.slice(i, j + 1)
-            
+            let tempArr = inArr.slice(i, j + 1)           
 
             tempSum = tempArr.reduce(add)
 
