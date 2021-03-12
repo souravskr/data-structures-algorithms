@@ -1,6 +1,6 @@
 const nums = [0,1,0,3,12];
 
-
+// Take more operation by looking into every item in the array. (Not efficient)
 const moveZeros1 = (nums)=> {
     if (nums.length >= 1 || nums.length <= (10 ** 4)){
         nums.forEach(item => {
@@ -14,7 +14,7 @@ const moveZeros1 = (nums)=> {
     }
     return nums
 }
-
+// Another method using While loop not looking into every item in the array.
 const moveZeros = nums =>{
     if (nums.length >= 1 || nums.length <= (10 ** 4)){
         const arrayZero = []
@@ -24,7 +24,9 @@ const moveZeros = nums =>{
             countZero = nums.indexOf(0)
             arrayZero.push(0)
         }
-        return nums.concat(arrayZero)
+        // push method is more faster than concat
+        // return nums.concat(arrayZero)
+        nums.push(...arrayZero)
     }
 
     return nums
