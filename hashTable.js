@@ -4,30 +4,54 @@ class HashTable {
       this.keyValue = []
     }
 
-    set(key, value){
-        // const keyValue = []
-        let keyIndex = this.data.flat().indexOf(key)
-        
-        if ( keyIndex === -1) {
-            this.keyValue.push(key)
-            this.keyValue.push(value)
-        } 
-        else{
-            
-            this.keyValue.splice(keyIndex + 1, 1, value)
-        }
+    // Without considering the hash memory address
 
-        // console.log(this.keyValue)
-        // console.log(keyIndex)
+    // set(key, value){
+    //     // const keyValue = []
+    //     let keyIndex = this.data.flat().indexOf(key)
         
-        return this.data.push(this.keyValue)
+    //     if ( keyIndex === -1) {
+    //         this.keyValue.push(key)
+    //         this.keyValue.push(value)
+    //     } 
+    //     else{
+            
+    //         this.keyValue.splice(keyIndex + 1, 1, value)
+    //     }        
+    //     return this.data.push(this.keyValue)
+    // }
+
+    // get(key){
+    //     let flatArr = this.data.flat()
+    //     let keyIndex = flatArr.indexOf(key)
+    //     console.log(flatArr[keyIndex + 1])
+    // }
+
+
+    // Considering hash memory address
+
+    set(key, value){
+        let address = this._hash(key)
+        if (!this.data[address]) {
+            this.data[address] = []
+        }
+        this.data[address].push([key, value])
+        return this.data
     }
 
     get(key){
-        let flatArr = this.data.flat()
-        let keyIndex = flatArr.indexOf(key)
-        console.log(flatArr[keyIndex + 1])
+        let address = this._hash(key)
+
+        if (this.data[address]) {
+            let flatArr = this.data.flat()
+            let keyIndex = flatArr.indexOf(key)
+            return flatArr[keyIndex + 1]
+        }
+
+        return undefined
     }
+
+
   
     _hash(key) {
       let hash = 0;
@@ -40,9 +64,14 @@ class HashTable {
   
   const myHashTable = new HashTable(50);
   myHashTable.set('grapes', 10000)
-  myHashTable.get('grapes')
+
+
+console.log(myHashTable.get('grapes'))
   myHashTable.set('grapes', 100)
   myHashTable.get('grapes')
   myHashTable.set('apples', 9)
   myHashTable.get('apples')
+
+ console.log(myHashTable.get('ball'))
+ 
   
