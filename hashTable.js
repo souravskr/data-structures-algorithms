@@ -32,10 +32,17 @@ class HashTable {
 
     set(key, value){
         let address = this._hash(key)
+        
         if (!this.data[address]) {
             this.data[address] = []
+            this.data[address].push([key, value])
+        }else{
+            let flatArr = this.data[address].flat()
+            let keyIndex = flatArr.indexOf(key)
+            flatArr.splice(keyIndex + 1, 1, value)
+            this.data[address][0] = flatArr
         }
-        this.data[address].push([key, value])
+        
         return this.data
     }
 
@@ -43,7 +50,8 @@ class HashTable {
         let address = this._hash(key)
 
         if (this.data[address]) {
-            let flatArr = this.data.flat()
+            // console.log(this.data[address])
+            let flatArr = this.data[address].flat()
             let keyIndex = flatArr.indexOf(key)
             return flatArr[keyIndex + 1]
         }
@@ -66,12 +74,14 @@ class HashTable {
   myHashTable.set('grapes', 10000)
 
 
-console.log(myHashTable.get('grapes'))
+// console.log(myHashTable.get('grapes'))
   myHashTable.set('grapes', 100)
-  myHashTable.get('grapes')
-  myHashTable.set('apples', 9)
-  myHashTable.get('apples')
 
- console.log(myHashTable.get('ball'))
+  myHashTable.set('grapes', 200)
+//   myHashTable.get('grapes')
+  myHashTable.set('apples', 9)
+  console.log(myHashTable.get('grapes'))
+
+// myHashTable.get('grapes')
  
   
