@@ -32,17 +32,17 @@ class HashTable {
 
     set(key, value){
         let address = this._hash(key)
+
         
+
         if (!this.data[address]) {
             this.data[address] = []
-            this.data[address].push([key, value])
-        }else{
-            let flatArr = this.data[address].flat()
-            let keyIndex = flatArr.indexOf(key)
-            flatArr.splice(keyIndex + 1, 1, value)
-            this.data[address][0] = flatArr
+            // this.data[address].push([key, value])
         }
         
+        this.data[address].push([key, value])
+        
+
         return this.data
     }
 
@@ -57,6 +57,26 @@ class HashTable {
         }
 
         return undefined
+    }
+
+    keys(){
+        let allKeyValues = []
+        const onlyKeys = []
+
+        // console.log(this.data)
+
+        this.data.forEach(item => {
+           allKeyValues.push(item.flat())
+        });
+        allKeyValues = allKeyValues.flat()
+        for (let i = 0; i < allKeyValues.length; i++) {
+            if (i % 2 === 0 ) {
+                onlyKeys.push(allKeyValues[i])
+            }
+            
+        }
+        console.log((onlyKeys))
+
     }
 
 
@@ -75,13 +95,17 @@ class HashTable {
 
 
 // console.log(myHashTable.get('grapes'))
-  myHashTable.set('grapes', 100)
+//   myHashTable.set('grapes', 100)
 
-  myHashTable.set('grapes', 200)
+//   myHashTable.set('grapes', 200)
 //   myHashTable.get('grapes')
   myHashTable.set('apples', 9)
-  console.log(myHashTable.get('grapes'))
+  myHashTable.set('bananas', 19)
+  myHashTable.set('oranges', 29)
+  myHashTable.set('mangoes', 39)
+
+//   console.log(myHashTable.get('mangoes'))
 
 // myHashTable.get('grapes')
  
-  
+  myHashTable.keys()
