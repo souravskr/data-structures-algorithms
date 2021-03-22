@@ -13,18 +13,18 @@
 
 
 // With traditional array method
-const firstRecurringChar1 = arr => {
+const firstRecurringChar1 = inputArr => {
   
     for (let i = 0; i < inputArr.length -1; i++) {
         if (inputArr[i] === inputArr[i+1]) {
-            return arr[i];
+            return inputArr[i];
         }
     }
     return undefined
 }
 
-const inputArr = [2, 5, 5, 2, 3, 5, 1, 2, 4]
-// console.log(firstRecurringChar1(inputArr))
+const inputArr = [2, 5, 1 , 2, 3, 5, 1, 2, 4]
+console.log(firstRecurringChar1(inputArr))
 
 // With hash function
 
@@ -42,4 +42,4 @@ const firstRecurringChar = arr => {
     return undefined
 }
 
-console.log(firstRecurringChar(inputArr))
+// console.log(firstRecurringChar(inputArr))
