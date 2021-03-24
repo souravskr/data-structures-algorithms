@@ -2,22 +2,22 @@ inputArr = [2, 3, 5, 6, 8, 13, 14, 20]
 
 
 def binary_search(arr, target):
-    left_arrow = 0
-    right_arrow = len(arr) - 1
 
-    while(left_arrow <= right_arrow):
+    left_pointer = 0
+    right_pointer = len(arr) - 1
 
-        middle_point = int((left_arrow + right_arrow)/2)
-        print(middle_point)
-        if(arr[middle_point] == target):
-            return target
+    while(left_pointer <= right_pointer):
 
-        elif(target > arr[middle_point]):
-            left_arrow = middle_point + 1
-            # print(left_arrow)
+        mid_pointer = int((left_pointer + right_pointer)/2)
+
+        if (target == arr[mid_pointer]):
+            return mid_pointer
+
+        elif (target > arr[mid_pointer]):
+            left_pointer = mid_pointer + 1
+
         else:
-            right_arrow = middle_point - 1
-        # print(right_arrow, left_arrow)
+            right_pointer = mid_pointer - 1
 
     return -1
 
