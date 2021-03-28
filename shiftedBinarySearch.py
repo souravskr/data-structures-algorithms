@@ -4,7 +4,6 @@ inputArr = [4, 5, 6, 7, 0, 1, 2, 3]
 def shifted_binary_search(inputArr, target):
     minValue = min(inputArr)
     maxValue = max(inputArr)
-    firstElem = inputArr[0]
     lastElem = inputArr[len(inputArr) - 1]
 
     if(target <= lastElem):
@@ -35,4 +34,4 @@ def shifted_binary_search(inputArr, target):
     return -1
 
 
-print(shifted_binary_search(inputArr, 4))
+print(shifted_binary_search(inputArr, 7))
