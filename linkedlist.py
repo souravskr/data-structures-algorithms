@@ -19,7 +19,7 @@ class Course:
     def add_student(self, student):
         if len(self.students) < self.max_students:
             return self.students.append(student)
-        return False
+        return -1
 
     def avg_grade(self):
         value = 0
@@ -33,8 +33,9 @@ s1 = Student("Tim", 95)
 s2 = Student("Jack", 85)
 s3 = Student("John", 90)
 
-c1 = Course('Science', 3)
+c1 = Course('Science', 2)
 c1.add_student(s1)
 c1.add_student(s3)
+print(c1.add_student(s2))
 
-print(c1.avg_grade())
+# print(c1.avg_grade())
