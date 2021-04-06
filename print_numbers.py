@@ -6,6 +6,7 @@ def print_numbers(start):
 
     print(start)
     print_numbers(start + 1)
+    return ""
 
 
 print(print_numbers(1))
