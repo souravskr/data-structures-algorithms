@@ -1,4 +1,4 @@
-const inArr = [-1]
+const inArr = [1, -3, 2, 1, -1]
 
 // const add = (a, b) => a + b
 
@@ -6,7 +6,7 @@ const inArr = [-1]
 
 // Brute Force Method ==> Complexity is O(n^2) ==> Not accepted in Leetcode
 
-const maxSubArray = (inArr)=>{
+const maxSubArray1 = (inArr)=>{
 
     const add = (a, b) => a + b
     let maxSum = 0;
@@ -44,6 +44,25 @@ const maxSubArray = (inArr)=>{
     return maxSum
 
 }
+
+// Khadane's Algorithm 
+
+const maxSubArray = (arr)=> {
+    let c_sum = arr[0]
+    let g_sum = arr[0]
+
+    for (let i = 1; i < arr.length; i++) {
+        c_sum = Math.max(arr[i], c_sum + arr[i])
+
+        if (c_sum > g_sum) {
+            g_sum = c_sum
+        }
+    }
+
+    return g_sum
+}
+
+
 
 
 
