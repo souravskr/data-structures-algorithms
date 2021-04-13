@@ -21,16 +21,3 @@
 
 
 # print(b)
-
-
-arr = [1, 2, 2, 1, 2, 1, 2]
-queries = [[1, 1, 2], [1, 2, 1]]
-
-a = []
-
-for i in range(len(arr)):
-    for item in queries:
-        for j in item:
-            if arr[i] == item[j]:
-                a.append(i)
-print(a)
