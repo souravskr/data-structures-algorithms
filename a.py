@@ -1,23 +1,9 @@
-
-# a = [8, 5, 6, 16, 5]
-# l = 1
-# r = 3
-
-# size = len(a)
-# b = []
-
-# for i in range(size):
-#     x1 = a[i] % (i + 1)
-#     if x1 == 0:
-#         x = a[i] // (i + 1)
-#         if a[i] == (i + 1) * x:
-#             if x >= l and x <= r:
-#                 b.append(True)
-#             else:
-#                 b.append(False)
-
-#     else:
-#         b.append(False)
+arr = [8, 5, 6, 16]
 
 
-# print(b)
+def insert_into(arr, num):
+    arr = sorted(arr)
+    size = len(arr)
+    i = 0
+    while (i < size):
+        if arr[i] > num:
