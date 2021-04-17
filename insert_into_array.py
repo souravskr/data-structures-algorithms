@@ -23,30 +23,31 @@ def insert_into(arr, num):
 
 # insert with binary search
 
+def shift_right(size, position):
+    for j in range(size - 1, position, -1):
+        temp = arr[j]
+        arr[j] = arr[j-1]
+        arr[j-1] = temp
+    return arr
+
+
 def insert_with_binary_search(arr, num):
     position = binary_search(arr, num)
     # print("position: ", position)
     arr.append(0)
     size = len(arr)
     if num < arr[position]:
-        for j in range(size - 1, position, -1):
-            temp = arr[j]
-            arr[j] = arr[j-1]
-            arr[j-1] = temp
+        arr = shift_right(size, position)
         arr[position] = num
     else:
-        for j in range(size - 1, position+1, -1):
-            temp = arr[j]
-            arr[j] = arr[j-1]
-            arr[j-1] = temp
-            # print(j)
-
-        arr[position+1] = num
+        position += 1
+        arr = shift_right(size, position)
+        arr[position] = num
 
     return arr
 
 
-print(insert_with_binary_search(arr, 3))
+print(insert_with_binary_search(arr, 2))
 
 
 def step_counter(num):
