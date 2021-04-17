@@ -25,7 +25,7 @@ def insert_into(arr, num):
 
 def insert_with_binary_search(arr, num):
     position = binary_search(arr, num)
-    print("position: ", position)
+    # print("position: ", position)
     arr.append(0)
     size = len(arr)
     if num < arr[position]:
@@ -47,3 +47,14 @@ def insert_with_binary_search(arr, num):
 
 
 print(insert_with_binary_search(arr, 3))
+
+
+def step_counter(num):
+    count = 0
+    while num > 1:
+        num = int(num/2)
+        count += 1
+    return count
+
+
+print(step_counter(100000))
