@@ -1,4 +1,5 @@
-arr = [5, 6, 8, 16]
+from binary_search import binary_search
+arr = [4, 6, 10, 12, 16]
 
 
 def insert_into(arr, num):
@@ -20,4 +21,29 @@ def insert_into(arr, num):
     return arr
 
 
-print(insert_into(arr, 15))
+# insert with binary search
+
+def insert_with_binary_search(arr, num):
+    position = binary_search(arr, num)
+    print("position: ", position)
+    arr.append(0)
+    size = len(arr)
+    if num < arr[position]:
+        for j in range(size - 1, position, -1):
+            temp = arr[j]
+            arr[j] = arr[j-1]
+            arr[j-1] = temp
+        arr[position] = num
+    else:
+        for j in range(size - 1, position+1, -1):
+            temp = arr[j]
+            arr[j] = arr[j-1]
+            arr[j-1] = temp
+            # print(j)
+
+        arr[position+1] = num
+
+    return arr
+
+
+print(insert_with_binary_search(arr, 3))
