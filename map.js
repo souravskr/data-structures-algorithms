@@ -12,20 +12,40 @@ const companies = [
 
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
-companies.forEach((company, index) => console.log(company.name, index+1))
+
+// Filters 
+// companies.forEach((company, index) => console.log(company.name, index+1))
 
 let mature = ages.filter(age=> age%2 === 0)
-console.log(mature)
+// console.log(mature)
 
 // filter retail companies
 
 const retailCompanies = companies.filter(company => company.category === 'Retail')
-console.log(retailCompanies)
+// console.log(retailCompanies)
 
 const eightiesCompanies = companies.filter(company => company.start >= 1980 && company.start < 1990)
 
-console.log(eightiesCompanies)
+// console.log(eightiesCompanies)
 
 const lastedTenYears = companies.filter(company => (company.end - company.start) >= 10)
 
-console.log(lastedTenYears)
+// console.log(lastedTenYears)
+
+// ------->Map<------
+
+const testMap = companies.map(company => `${company.name} [${company.start}-${company.end}]`)
+
+// console.log(testMap)
+
+const squaredRootAges = ages.map(age => Math.sqrt(age))
+                            .map(age => age * 2)
+// console.log(squaredRootAges)
+
+
+// ------->Sort<-------
+const sortedCompanies = companies.sort((a, b) => a.start > b.start ? 1 : -1)
+console.log(sortedCompanies)
+
+const sortedAge = ages.sort((a, b) => a > b ? 1 : -1)
+console.log(sortedAge)
