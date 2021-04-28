@@ -47,5 +47,14 @@ const squaredRootAges = ages.map(age => Math.sqrt(age))
 const sortedCompanies = companies.sort((a, b) => a.start > b.start ? 1 : -1)
 console.log(sortedCompanies)
 
-const sortedAge = ages.sort((a, b) => a > b ? 1 : -1)
-console.log(sortedAge)
+const reverseSortedAge = ages.sort((a, b) => a > b ? -1 : 1)
+console.log(reverseSortedAge)
+
+// ------->Reduce<-------
+
+const totalAges = ages.reduce((total, age) => total + age, 0)
+console.log(totalAges)
+
+const yearsOfCompanies = companies.map(company => company.end - company.start)
+                                    .reduce((total, age) => total + age, 0)
+console.log(yearsOfCompanies)
