@@ -13,8 +13,8 @@ const companies = [
 const ages = [33, 12, 20, 16, 5, 54, 21, 44, 61, 13, 15, 45, 25, 64, 32];
 
 
-// Filters 
-// companies.forEach((company, index) => console.log(company.name, index+1))
+Filters 
+companies.forEach((company, index) => console.log(company.name, index+1))
 
 let mature = ages.filter(age=> age%2 === 0)
 // console.log(mature)
@@ -58,3 +58,4 @@ console.log(totalAges)
 const yearsOfCompanies = companies.map(company => company.end - company.start)
                                     .reduce((total, age) => total + age, 0)
 console.log(yearsOfCompanies)
+
