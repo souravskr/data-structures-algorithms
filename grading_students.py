@@ -1,21 +1,24 @@
 
 
-def gradingStudents(grade):
+def gradingStudents(grades):
     pass_mark = 40
     no_round_up_mark = pass_mark - 3
-    
-    if (grade % 5 == 0 or grade <= no_round_up_mark):
-        return grade
-    
-    else:
-        divide_by_five = int(grade / 5) + 1
-        upper_limit = divide_by_five * 5
-        grade_review = upper_limit - grade
-        if grade_review < 3:
-            return upper_limit
+    final_mark = []
+    for grade in grades:
+        if (grade % 5 == 0 or grade <= no_round_up_mark):
+            final_mark.append(grade)
+        
         else:
-            return grade
+            divide_by_five = int(grade / 5) + 1
+            upper_limit = divide_by_five * 5
+            grade_review = upper_limit - grade
+            if grade_review < 3:
+                final_mark.append(upper_limit)
+            else:
+                final_mark.append(grade)
+        
+    return final_mark
 
         
-
-print(gradingStudents(67))
+arr = [73, 67, 38, 33]
+print(gradingStudents(arr))
