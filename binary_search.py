@@ -15,9 +15,8 @@ def binary_search(arr, num):
             r_pointer = mid - 1
         else:
             l_pointer = mid + 1
-
     return mid
     # return "Not Found!"
 
 
-# print(binary_search(arr, 9))
+print(binary_search(arr, 9))
