@@ -75,11 +75,34 @@ class LinkedList:
             self.tail = None
         return temp
 
+    def prepend(self, value):
+        new_node = Node(value)
+        if self.length == 0:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            pre = self.head
+            self.head = new_node
+            new_node.next = pre
+        self.length += 1
+        return True
+
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
 # my_linked_list.append(6)
 my_linked_list.print_list()
+print('--')
+
+my_linked_list.prepend(3)
+my_linked_list.prepend(4)
+my_linked_list.print_list()
+
 print(my_linked_list.pop())
 print(my_linked_list.pop())
 print(my_linked_list.pop())
+print(my_linked_list.pop())
+my_linked_list.print_list()
+print('--')
+my_linked_list.prepend(4)
+my_linked_list.print_list()
