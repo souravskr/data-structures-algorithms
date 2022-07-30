@@ -98,22 +98,49 @@ class LinkedList:
             self.tail = None
         return temp
 
+    def get(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        temp = self.head
+        for _ in range(index):
+            temp = temp.next
+        return temp
+
+    def set_value(self, index, value):
+        target_node = self.get(index)
+        if target_node:
+            target_node.value = value
+            return True
+        return False
+
+
+
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
 # my_linked_list.append(6)
-my_linked_list.print_list()
-print('--')
-
-my_linked_list.prepend(3)
+# my_linked_list.print_list()
+# print('--')
+#
+# my_linked_list.prepend(3)
+# my_linked_list.prepend(4)
+# my_linked_list.print_list()
+#
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# print(my_linked_list.pop())
+# my_linked_list.print_list()
+# print('--')
 my_linked_list.prepend(4)
 my_linked_list.print_list()
+print(my_linked_list.length)
+print(my_linked_list.get(2))
 
-print(my_linked_list.pop())
-print(my_linked_list.pop())
-print(my_linked_list.pop())
-print(my_linked_list.pop())
-my_linked_list.print_list()
+
 print('--')
-my_linked_list.prepend(4)
+my_linked_list.print_list()
+
+my_linked_list.set_value(3, 0)
+print('--')
 my_linked_list.print_list()
