@@ -113,7 +113,20 @@ class LinkedList:
             return True
         return False
 
-
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        left_node = self.get(index - 1)
+        new_node = Node(value)
+        right_node = left_node.next
+        left_node.next = new_node
+        new_node.next = right_node
+        self.length += 1
+        return True
 
 
 my_linked_list = LinkedList(1)
@@ -137,10 +150,13 @@ my_linked_list.print_list()
 print(my_linked_list.length)
 print(my_linked_list.get(2))
 
-
 print('--')
 my_linked_list.print_list()
 
 my_linked_list.set_value(3, 0)
 print('--')
+my_linked_list.print_list()
+
+print('--')
+my_linked_list.insert(1, 5)
 my_linked_list.print_list()
