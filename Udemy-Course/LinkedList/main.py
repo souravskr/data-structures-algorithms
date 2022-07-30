@@ -143,6 +143,21 @@ class LinkedList:
         self.length -= 1
         return temp
 
+    # VERY IMPORTANT
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = self.head
+
+        before = None
+        after = temp.next
+
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
@@ -178,4 +193,8 @@ my_linked_list.print_list()
 
 print('--')
 my_linked_list.remove(1)
+my_linked_list.print_list()
+
+print('--')
+my_linked_list.reverse()
 my_linked_list.print_list()
