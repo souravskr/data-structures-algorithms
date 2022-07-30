@@ -128,6 +128,21 @@ class LinkedList:
         self.length += 1
         return True
 
+    def remove(self, index):
+        if index < 0:
+            return None
+        if index >= self.length:
+            return self.pop()
+        if index == 0:
+            return self.pop_first()
+        left_node = self.get(index - 1)
+        temp = left_node.next
+        right_node = temp.next
+        left_node.next = right_node
+        temp.next = None
+        self.length -= 1
+        return temp
+
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
@@ -159,4 +174,8 @@ my_linked_list.print_list()
 
 print('--')
 my_linked_list.insert(1, 5)
+my_linked_list.print_list()
+
+print('--')
+my_linked_list.remove(1)
 my_linked_list.print_list()
