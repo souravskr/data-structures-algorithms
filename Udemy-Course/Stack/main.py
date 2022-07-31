@@ -29,21 +29,22 @@ class Stack:
         self.length -= 1
         return temp
 
-    def prepend(self, value):
+    def push(self, value):
         new_node = Node(value)
-        temp = self.top
-        if temp:
+        if self.length == 0:
+            self.top = new_node
+        else:
+            temp = self.top
             self.top = new_node
             self.top.next = temp
-            self.length += 1
-            return True
-        return False
+        self.length += 1
+        return True
 
 
 my_stack = Stack(4)
-my_stack.prepend(5)
-my_stack.prepend(3)
-my_stack.prepend(9)
+my_stack.push(5)
+my_stack.push(3)
+my_stack.push(9)
 my_stack.print_stack()
 my_stack.pop_first()
 my_stack.pop_first()
