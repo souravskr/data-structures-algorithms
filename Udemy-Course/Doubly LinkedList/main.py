@@ -77,15 +77,39 @@ class DoublyLinkedList:
         if index < 0 or index >= self.length:
             return None
         temp = self.head
-        mid = int(self.length/2)
+        mid = int(self.length / 2)
         if index < mid:
             for _ in range(index):
                 temp = temp.next
         else:
             temp = self.tail
-            for _ in range(self.length -1, index, -1):
+            for _ in range(self.length - 1, index, -1):
                 temp = temp.prev
         return temp
+
+    def set_value(self, index, value):
+        temp = self.get(index)
+        if temp:
+            temp.value = value
+            return True
+        return False
+
+    def insert(self, index, value):
+        if index < 0 or index > self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        left_node = self.get(index - 1)
+        new_node = Node(value)
+        right_node = left_node.next
+        left_node.next = new_node
+        new_node.prev = left_node
+        new_node.next = right_node
+        right_node.prev = new_node
+        self.length += 1
+        return True
 
 
 my_doubly_linked_list = DoublyLinkedList(7)
@@ -94,5 +118,12 @@ my_doubly_linked_list.append(5)
 my_doubly_linked_list.pop()
 my_doubly_linked_list.prepend(1)
 # my_doubly_linked_list.pop_first()
-print(my_doubly_linked_list.get(2))
+# print(my_doubly_linked_list.get(2))
+
+my_doubly_linked_list.print_list()
+print('--')
+my_doubly_linked_list.set_value(0, 5)
+my_doubly_linked_list.print_list()
+print('--')
+my_doubly_linked_list.insert(1, 19)
 my_doubly_linked_list.print_list()
