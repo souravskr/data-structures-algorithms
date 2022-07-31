@@ -34,9 +34,8 @@ class Stack:
         if self.length == 0:
             self.top = new_node
         else:
-            temp = self.top
+            new_node.next = self.top
             self.top = new_node
-            self.top.next = temp
         self.length += 1
         return True
 
