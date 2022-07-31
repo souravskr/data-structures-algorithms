@@ -114,6 +114,27 @@ class DoublyLinkedList:
         self.length += 1
         return True
 
+    def remove(self, index):
+        if index < 0 or index >= self.length:
+            return None
+        if index == 0:
+            return self.pop_first()
+        if index == self.length - 1:
+            return self.pop()
+
+        temp = self.get(index)
+        left_node = temp.prev
+        right_node = temp.next
+
+        left_node.next = right_node
+        right_node.prev = left_node
+
+        temp.next = None
+        temp.prev = None
+
+        self.length -= 1
+        return temp
+
 
 my_doubly_linked_list = DoublyLinkedList(7)
 my_doubly_linked_list.append(4)
@@ -129,4 +150,7 @@ my_doubly_linked_list.set_value(0, 5)
 my_doubly_linked_list.print_list()
 print('--')
 my_doubly_linked_list.insert(1, 19)
+my_doubly_linked_list.print_list()
+print('--')
+my_doubly_linked_list.remove(3)
 my_doubly_linked_list.print_list()
