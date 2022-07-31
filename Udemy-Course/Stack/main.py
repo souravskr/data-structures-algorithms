@@ -21,11 +21,8 @@ class Stack:
         if self.length == 0:
             return None
         temp = self.top
-        if self.length == 1:
-            self.top = None
-        else:
-            self.top = self.top.next
-            temp.next = None
+        self.top = self.top.next
+        temp.next = None
         self.length -= 1
         return temp
 
