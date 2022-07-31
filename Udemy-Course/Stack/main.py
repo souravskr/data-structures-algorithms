@@ -17,7 +17,7 @@ class Stack:
             temp = temp.next
         print('--')
 
-    def pop_first(self):
+    def pop(self):
         if self.length == 0:
             return None
         temp = self.top
@@ -45,6 +45,6 @@ my_stack.push(5)
 my_stack.push(3)
 my_stack.push(9)
 my_stack.print_stack()
-my_stack.pop_first()
-my_stack.pop_first()
+my_stack.pop()
+my_stack.pop()
 my_stack.print_stack()
