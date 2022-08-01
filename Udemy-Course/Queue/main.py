@@ -18,7 +18,7 @@ class Queue:
             temp = temp.next
         print('---')
 
-    def push(self, value):
+    def enqueue(self, value):
         new_node = Node(value)
         if self.length == 0:
             self.first = new_node
@@ -29,10 +29,9 @@ class Queue:
         self.length += 1
         return True
 
-    def pop(self):
+    def deque(self):
         if self.length == 0:
             return None
-
         temp = self.first
         self.first = temp.next
         temp.next = None
@@ -41,8 +40,8 @@ class Queue:
 
 
 my_queue = Queue(2)
-my_queue.push(3)
-my_queue.push(4)
+my_queue.enqueue(3)
+my_queue.enqueue(4)
 my_queue.print_list()
-my_queue.pop()
+my_queue.deque()
 my_queue.print_list()
