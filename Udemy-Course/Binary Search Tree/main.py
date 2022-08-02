@@ -54,24 +54,15 @@ class BinarySearchTree:
                 temp = temp.right
 
     def contains(self, value):
-        if self.root is None:
-            return False
-        if value == self.root.value:
-            return True
         temp = self.root
-        while True:
+        while temp:
             if value < temp.value:
-                if temp.left is None:
-                    return False
-                if value == temp.left.value:
-                    return True
                 temp = temp.left
-            else:
-                if temp.right is None:
-                    return False
-                if value == temp.right.value:
-                    return True
+            elif value > temp.value:
                 temp = temp.right
+            else:
+                return True
+        return False
 
 
 my_binary_tree = BinarySearchTree()
