@@ -64,12 +64,30 @@ class BinarySearchTree:
                 return True
         return False
 
+    @staticmethod
+    def min_value_node(current_node):
+        while current_node.left:
+            current_node = current_node.left
+        return current_node.value
+
+    def minimum(self):
+        temp = self.root
+        value = temp.value
+        while temp:
+            value = temp.value
+            temp = temp.left
+
+        return value
+
 
 my_binary_tree = BinarySearchTree()
 my_binary_tree.insert(4)
 my_binary_tree.insert(5)
 my_binary_tree.insert(3)
+my_binary_tree.insert(1)
 print(my_binary_tree.root.value)
 print(my_binary_tree.root.left.value)
+print(my_binary_tree.root.left.left.value)
 print(my_binary_tree.root.right.value)
+print(f'Minimum: {my_binary_tree.min_value_node(my_binary_tree.root.left)}')
 print(my_binary_tree.contains(0))
