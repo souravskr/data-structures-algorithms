@@ -163,12 +163,12 @@ class LinkedList:
 
 my_linked_list = LinkedList(1)
 my_linked_list.append(2)
-# my_linked_list.append(6)
+my_linked_list.append(6)
 # my_linked_list.print_list()
 # print('--')
 #
-# my_linked_list.prepend(3)
-# my_linked_list.prepend(4)
+my_linked_list.prepend(3)
+my_linked_list.prepend(4)
 # my_linked_list.print_list()
 #
 # print(my_linked_list.pop())
@@ -179,23 +179,23 @@ my_linked_list.append(2)
 # print('--')
 my_linked_list.prepend(4)
 my_linked_list.print_list()
-print(my_linked_list.length)
-print(my_linked_list.get(2))
-
-print('--')
-my_linked_list.print_list()
-
-my_linked_list.set_value(3, 0)
-print('--')
-my_linked_list.print_list()
-
-print('--')
-my_linked_list.insert(1, 5)
-my_linked_list.print_list()
-
-print('--')
-my_linked_list.remove(1)
-my_linked_list.print_list()
+# print(my_linked_list.length)
+# print(my_linked_list.get(2))
+#
+# print('--')
+# my_linked_list.print_list()
+#
+# my_linked_list.set_value(3, 0)
+# print('--')
+# my_linked_list.print_list()
+#
+# print('--')
+# my_linked_list.insert(1, 5)
+# my_linked_list.print_list()
+#
+# print('--')
+# my_linked_list.remove(1)
+# my_linked_list.print_list()
 
 print('--')
 my_linked_list.reverse()
