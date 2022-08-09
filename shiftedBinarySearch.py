@@ -23,7 +23,7 @@ def shifted_binary_search(input_arr, target):
         left_pointer = 0
         right_pointer = input_arr.index(max_value)
         while left_pointer <= right_pointer:
-            mid_pointer = int((left_pointer + right_pointer)/2)
+            mid_pointer = ((left_pointer + right_pointer)//2)
             if target == input_arr[mid_pointer]:
                 return mid_pointer
             elif target > input_arr[mid_pointer]:
