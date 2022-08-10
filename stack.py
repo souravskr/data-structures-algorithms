@@ -4,7 +4,7 @@ from typing import List
 class Stack:
 
     def __init__(self) -> None:
-        self.a_list = list()
+        self.a_list = []
 
     def push(self, item):
         return self.a_list.append(item)
@@ -23,30 +23,30 @@ class Stack:
         return f"{self.a_list}"
 
 
-mystack = Stack()
-mystack.push(1)
-mystack.push(2)
-mystack.push(3)
-mystack.push(4)
-mystack.push(5)
-mystack.push(6)
+my_stack = Stack()
+my_stack.push(1)
+my_stack.push(2)
+my_stack.push(3)
+my_stack.push(4)
+my_stack.push(5)
+my_stack.push(6)
 
-print(mystack)
-print(mystack.a_list)
+print(my_stack)
+print(my_stack.a_list)
 
-mystack.pop()
-mystack.pop()
-mystack.pop()
+my_stack.pop()
+my_stack.pop()
+my_stack.pop()
 
-print(mystack)
-print(mystack.a_list)
-print(mystack.peek())
+print(my_stack)
+print(my_stack.a_list)
+print(my_stack.peek())
 
-mystack.pop()
-mystack.pop()
-mystack.pop()
-mystack.pop()
+my_stack.pop()
+my_stack.pop()
+my_stack.pop()
+my_stack.pop()
 
-print(mystack)
-print(mystack.a_list)
-print(mystack.peek())
+print(my_stack)
+print(my_stack.a_list)
+print(my_stack.peek())
