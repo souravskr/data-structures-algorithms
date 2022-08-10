@@ -1,23 +1,3 @@
-arr = ['abcde', 'sdaklfj', 'asdjf', 'na', 'basdn', 'sdaklfj',
-       'asdjf', 'na', 'asdjf', 'na', 'basdn', 'sdaklfj', 'asdjf']
-qur = ['abcde', 'sdaklfj', 'asdjf', 'na', 'basdn']
-
-
-# def matchingStrings(arr, qur):
-#     output_dict = {}
-#     for i in qur:
-#         k = 1
-#         for j in arr:
-#             if i == j:
-#                 output_dict[i] = k
-#                 k += 1
-#             if output_dict.get(i):
-#                 continue
-#             output_dict[i] = 0
-
-#     output = [*output_dict.values()]
-#     return output
-
 def arr_to_dict(arr):
     arr_dict = {}
     for i in arr:
@@ -28,7 +8,7 @@ def arr_to_dict(arr):
     return arr_dict
 
 
-def matchingStrings(strings, queries):
+def matching_strings(strings, queries):
     str_dict = arr_to_dict(strings)
     output = []
     for i in queries:
@@ -40,4 +20,8 @@ def matchingStrings(strings, queries):
     return output
 
 
-print(matchingStrings(arr, qur))
+my_list = ['abcde', 'sdaklfj', 'asd', 'na', 'basdn', 'sdaklfj',
+           'asdjf', 'na', 'asdjf', 'na', 'basdn', 'sdaklfj', 'asdjf']
+qur_list = ['abcde', 'sdaklfj', 'asdjf', 'na', 'basdn']
+
+print(matching_strings(my_list, qur_list))
