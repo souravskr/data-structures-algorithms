@@ -27,9 +27,21 @@ class HashTable:
         else:
             return None
 
+    def get_keys(self):
+        keys = []
+        size = len(self.data_map)
+        for i in range(size):
+            if self.data_map[i]:
+                for j in range(len(self.data_map[i])):
+                    keys.append(self.data_map[i][j][0])
+
+        return keys
+
+
 
 my_hash_table = HashTable()
 my_hash_table.set_item('bolts', 400)
 my_hash_table.set_item('screws', 1400)
 my_hash_table.print_table()
 print(my_hash_table.get_item('screws'))
+print(my_hash_table.get_keys())
