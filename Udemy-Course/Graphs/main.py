@@ -21,9 +21,10 @@ class Graph:
 
     def remove_edge(self, v1, v2):
         if v1 in self.add_list and v2 in self.add_list:
-            self.add_list[v1].remove(v2)
-            self.add_list[v2].remove(v1)
-            return True
+            if self.add_list[v1] and self.add_list[v2]:
+                self.add_list[v1].remove(v2)
+                self.add_list[v2].remove(v1)
+                return True
         return False
 
 

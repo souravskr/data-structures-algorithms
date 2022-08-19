@@ -79,6 +79,76 @@ class BinarySearchTree:
 
         return value
 
+    def bfs(self):
+        curr_node = self.root
+        queue = []
+        result = []
+        queue.append(curr_node)
+
+        while queue:
+            curr_node = queue.pop(0)
+            result.append(curr_node.value)
+            if curr_node.left:
+                queue.append(curr_node.left)
+            if curr_node.right:
+                queue.append(curr_node.right)
+        return result
+
+    def dfs_preorder(self):
+        curr_node = self.root
+        stack = []
+        result = []
+        stack.append(curr_node)
+
+        while stack:
+            curr_node = stack.pop()
+            result.append(curr_node.value)
+            if curr_node.right:
+                stack.append(curr_node.right)
+            if curr_node.left:
+                stack.append(curr_node.left)
+
+        return result
+
+    def dfs_preorder_recursive(self):
+        result = []
+
+        def traverse(curr_node):
+            result.append(curr_node.value)
+            if curr_node.left:
+                traverse(curr_node.left)
+            if curr_node.right:
+                traverse(curr_node.right)
+
+        traverse(self.root)
+        return result
+
+    def dfs_postorder_recursive(self):
+        result = []
+
+        def traverse(curr_node):
+            if curr_node.left:
+                traverse(curr_node.left)
+            if curr_node.right:
+                traverse(curr_node.right)
+            result.append(curr_node.value)
+
+        traverse(self.root)
+        return result
+
+    def dfs_inorder(self):
+        result = []
+
+        def traverse(curr_node):
+            if curr_node.left:
+                traverse(curr_node.left)
+            result.append(curr_node.value)
+            if curr_node.right:
+                traverse(curr_node.right)
+
+        traverse(self.root)
+        return result
+
 
 my_binary_tree = BinarySearchTree()
 my_binary_tree.insert(4)
@@ -91,3 +161,9 @@ print(my_binary_tree.root.left.left.value)
 print(my_binary_tree.root.right.value)
 print(f'Minimum: {my_binary_tree.min_value_node(my_binary_tree.root.left)}')
 print(my_binary_tree.contains(0))
+
+print(my_binary_tree.bfs())
+print(my_binary_tree.dfs_preorder())
+print(my_binary_tree.dfs_preorder_recursive())
+print(my_binary_tree.dfs_postorder_recursive())
+print(my_binary_tree.dfs_inorder())
