@@ -15,3 +15,4 @@ def insertion_sort(arr):
 
 my_arr = [4, 2, 7, 1, 3]
 print(insertion_sort(my_arr))
+ 
