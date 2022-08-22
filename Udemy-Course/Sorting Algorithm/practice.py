@@ -57,3 +57,33 @@ def max_value(arr):
 
 my_list = [4, 3, 2, 1, 9]
 print(max_value(my_list))
+
+
+def min_value(arr):
+    size = len(arr)
+    min_index = 0
+    for i in range(1, size):
+        if arr[i] < arr[min_index]:
+            min_index = i
+    arr[min_index], arr[0] = arr[0], arr[min_index]
+    return arr[0]
+
+
+my_list = [4, 3, 2, 1, 9, 0]
+print(min_value(my_list))
+
+
+def insertion_sort(arr):
+    size = len(arr)
+    for i in range(1, size):
+        temp = arr[i]
+        j = i - 1
+        while temp < arr[j] and j >= 0:
+            arr[j + 1] = arr[j]
+            arr[j] = temp
+            j -= 1
+    return arr
+
+
+my_list = [4, 3, 2, 1, 9, 0]
+print(insertion_sort(my_list))
