@@ -14,7 +14,6 @@ class BinarySearchTree:
         if self.root is None:
             self.root = new_node
             return True
-
         temp = self.root
         while True:
             if new_node.value == temp.value:
@@ -41,23 +40,42 @@ class BinarySearchTree:
                 return temp
         return None
 
-    def remove(self, value):
-        # look up the node with a track of previous node
-        # if the targeted node does not have right node, then
-        # edge case: check if the previous node is None, which means we are removing the root node.
-        # then simply left node of the root will be the new root.
-        # else -->
-        pass
+    # Iterative Solution
+    def dfs_iterative(self):
+        res = []
+        if self.root is None:
+            return res
+        stack = [self.root]
+        while stack:
+            curr_node = stack.pop()
+            res.append(curr_node.value)
+            if curr_node.right:
+                stack.append(curr_node.right)
+            if curr_node.left:
+                stack.append(curr_node.left)
+        return res
 
+    def dfs_recursive(self):
+        res = []
+        if self.root is None:
+            return res
+
+        def traverse(curr_node):
+            res.append(curr_node.value)
+            if curr_node.left:
+                traverse(curr_node.left)
+            if curr_node.right:
+                traverse(curr_node.right)
+
+        traverse(self.root)
+        return res
 
 
 my_tree = BinarySearchTree()
-my_tree.insert(9)
+my_tree.insert(5)
 my_tree.insert(4)
-my_tree.insert(20)
-my_tree.insert(1)
+my_tree.insert(3)
 my_tree.insert(6)
-my_tree.insert(15)
-my_tree.insert(170)
-
-print(my_tree.lookup(9).value)
+my_tree.insert(7)
+print(my_tree.lookup(7))
+print(my_tree.dfs_iterative())
