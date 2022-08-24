@@ -77,11 +77,11 @@ class BinarySearchTree:
         queue = [self.root]
         while queue:
             cur_node = queue.pop(0)
+            res.append(cur_node.value)
             if cur_node.left:
                 queue.append(cur_node.left)
             if cur_node.right:
                 queue.append(cur_node.right)
-            res.append(cur_node.value)
         return res
 
 
