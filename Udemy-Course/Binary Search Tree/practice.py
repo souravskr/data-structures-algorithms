@@ -84,6 +84,54 @@ class BinarySearchTree:
                 queue.append(cur_node.right)
         return res
 
+    def contains(self, value):
+        if self.root is None:
+            return None
+        temp = self.root
+        while temp:
+            if value < temp.value:
+                temp = temp.left
+            elif value > temp.value:
+                temp = temp.right
+            else:
+                return temp
+        return False
+
+    def bfs_lookup(self, value):
+        if self.root is None:
+            return None
+        queue = [self.root]
+        while queue:
+            cur_node = queue.pop(0)
+            if cur_node.value == value:
+                return True
+            if cur_node.left:
+                queue.append(cur_node.left)
+            if cur_node.right:
+                queue.append(cur_node.right)
+        return False
+
+    def dfs_lookup(self, value):
+        if self.root is None:
+            return False
+
+        def traverse(node, val):
+            if val == node.value:
+                return True
+            if node.left:
+                traverse(node.left, val)
+            if node.right:
+                traverse(node.right, val)
+
+        return traverse(self.root.left, value) or traverse(self.root.right, value)
+
+    def dfs_lookup_1(self, node, target):
+        if node is None:
+            return False
+        if node.value == target:
+            return True
+        return self.dfs_lookup_1(node.left, target) or self.dfs_lookup_1(node.right, target)
+
 
 my_tree = BinarySearchTree()
 my_tree.insert(5)
@@ -94,3 +142,8 @@ my_tree.insert(7)
 print(my_tree.lookup(7))
 print(my_tree.dfs_iterative())
 print(my_tree.bfs())
+print(my_tree.contains(9))
+print(my_tree.bfs_lookup(6))
+print(my_tree.dfs_lookup(9))
+
+print(my_tree.dfs_lookup_1(my_tree.root, 9))
