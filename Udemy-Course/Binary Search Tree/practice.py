@@ -190,7 +190,6 @@ class BinarySearchTree:
         return max(left_height, right_height) + 1
 
 
-
 my_tree = BinarySearchTree()
 my_tree.insert(5)
 my_tree.insert(4)
