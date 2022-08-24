@@ -161,13 +161,22 @@ class BinarySearchTree:
         right_min = self.dfs_min_value(node.right)
         return min(node.value, left_min, right_min)
 
-    def dfs_max_root_to_leaf_path(self, node):
-        if node is None:
-            return 0
-        if self.dfs_max_root_to_leaf_path(node.left) > self.dfs_max_root_to_leaf_path(node.right):
-            return node.value + self.dfs_max_root_to_leaf_path(node.left)
-        else:
-            return node.value + self.dfs_max_root_to_leaf_path(node.right)
+    # def dfs_max_root_to_leaf_path(self, node):
+    #     if node is None:
+    #         return 0
+    #     if self.dfs_max_root_to_leaf_path(node.left) > self.dfs_max_root_to_leaf_path(node.right):
+    #         return node.value + self.dfs_max_root_to_leaf_path(node.left)
+    #     else:
+    #         return node.value + self.dfs_max_root_to_leaf_path(node.right)
+
+    # Another Solution of above
+    def dfs_max_root_to_leaf_path(self, root):
+        if root is None:
+            return -math.inf
+        if root.left is None and root.right is None:
+            return root.value
+        max_value = max(self.dfs_max_root_to_leaf_path(root.left), self.dfs_max_root_to_leaf_path(root.right))
+        return root.value + max_value
 
 
 my_tree = BinarySearchTree()
