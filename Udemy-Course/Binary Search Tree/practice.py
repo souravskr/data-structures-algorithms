@@ -70,6 +70,20 @@ class BinarySearchTree:
         traverse(self.root)
         return res
 
+    def bfs(self):
+        res = []
+        if self.root is None:
+            return res
+        queue = [self.root]
+        while queue:
+            cur_node = queue.pop(0)
+            if cur_node.left:
+                queue.append(cur_node.left)
+            if cur_node.right:
+                queue.append(cur_node.right)
+            res.append(cur_node.value)
+        return res
+
 
 my_tree = BinarySearchTree()
 my_tree.insert(5)
@@ -79,3 +93,4 @@ my_tree.insert(6)
 my_tree.insert(7)
 print(my_tree.lookup(7))
 print(my_tree.dfs_iterative())
+print(my_tree.bfs())
