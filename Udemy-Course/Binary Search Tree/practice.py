@@ -178,6 +178,18 @@ class BinarySearchTree:
         max_value = max(self.dfs_max_root_to_leaf_path(root.left), self.dfs_max_root_to_leaf_path(root.right))
         return root.value + max_value
 
+    def height(self, root):
+        if root is None:
+            return 0
+        left_height = self.height(root.left)
+        right_height = self.height(root.right)
+        if left_height > right_height:
+            h = 1 + left_height
+        else:
+            h = 1 + right_height
+        return max(left_height, right_height) + 1
+
+
 
 my_tree = BinarySearchTree()
 my_tree.insert(5)
@@ -208,5 +220,6 @@ alvin_tree.insert(11)
 alvin_tree.insert(10)
 alvin_tree.insert(12)
 alvin_tree.insert(9)
+print(alvin_tree.height(alvin_tree.root))
 
-print(alvin_tree.dfs_max_root_to_leaf_path(alvin_tree.root))
+print(alvin_tree.height(alvin_tree.root))
