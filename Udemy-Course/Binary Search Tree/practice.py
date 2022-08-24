@@ -1,3 +1,6 @@
+import math
+
+
 class Node:
     def __init__(self, value):
         self.value = value
@@ -132,6 +135,40 @@ class BinarySearchTree:
             return True
         return self.dfs_lookup_1(node.left, target) or self.dfs_lookup_1(node.right, target)
 
+    def bfs_treesum(self):
+        res = 0
+        if self.root is None:
+            return res
+        queue = [self.root]
+        while queue:
+            cur_node = queue.pop(0)
+            res += cur_node.value
+            if cur_node.left:
+                queue.append(cur_node.left)
+            if cur_node.right:
+                queue.append(cur_node.right)
+        return res
+
+    def dfs_treesum(self, node):
+        if node is None:
+            return 0
+        return node.value + self.dfs_treesum(node.left) + self.dfs_treesum(node.right)
+
+    def dfs_min_value(self, node):
+        if node is None:
+            return math.inf
+        left_min = self.dfs_min_value(node.left)
+        right_min = self.dfs_min_value(node.right)
+        return min(node.value, left_min, right_min)
+
+    def dfs_max_root_to_leaf_path(self, node):
+        if node is None:
+            return 0
+        if self.dfs_max_root_to_leaf_path(node.left) > self.dfs_max_root_to_leaf_path(node.right):
+            return node.value + self.dfs_max_root_to_leaf_path(node.left)
+        else:
+            return node.value + self.dfs_max_root_to_leaf_path(node.right)
+
 
 my_tree = BinarySearchTree()
 my_tree.insert(5)
@@ -147,3 +184,20 @@ print(my_tree.bfs_lookup(6))
 print(my_tree.dfs_lookup(9))
 
 print(my_tree.dfs_lookup_1(my_tree.root, 9))
+print(my_tree.bfs_treesum())
+print(my_tree.dfs_treesum(my_tree.root))
+
+print(my_tree.dfs_min_value(my_tree.root))
+
+print(my_tree.dfs_max_root_to_leaf_path(my_tree.root))
+
+alvin_tree = BinarySearchTree()
+alvin_tree.insert(5)
+alvin_tree.insert(3)
+alvin_tree.insert(1)
+alvin_tree.insert(11)
+alvin_tree.insert(10)
+alvin_tree.insert(12)
+alvin_tree.insert(9)
+
+print(alvin_tree.dfs_max_root_to_leaf_path(alvin_tree.root))
