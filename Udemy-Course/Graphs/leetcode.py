@@ -54,7 +54,7 @@ def dfs_undirected(graph, src, dst, visited):
     return False
 
 
-print(dfs_undirected(adj_list, 0, 5, set()))
+# print(dfs_undirected(adj_list, 0, 5, set()))
 
 
 def valid_path_for_undirected_graph(edges, source, destination):
@@ -80,4 +80,4 @@ def valid_path_for_undirected_graph(edges, source, destination):
     return dfs(source, destination, visited)
 
 
-print(valid_path_for_undirected_graph(edges, 0, 5))
+# print(valid_path_for_undirected_graph(edges, 0, 5))
