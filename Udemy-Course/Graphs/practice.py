@@ -89,6 +89,15 @@ class Graph:
                 queue.extend(self.adj_list[cur_vertex])
         return res
 
+    def has_path(self, src, dst):
+        if src == dst:
+            return True
+        for vertex in self.adj_list[src]:
+            if self.has_path(vertex, dst):
+                return True
+
+        return False
+
 
 my_graph = Graph()
 my_graph.add_vertex('a')
@@ -107,3 +116,4 @@ print('Graph(Adjacency List): ', my_graph.adj_list)
 print('DFS-Iterative: ', my_graph.dfs_iterative('a'))
 print('DFS-Recursive: ', my_graph.dfs('a'))
 print('BFS: ', my_graph.bfs('a'))
+print(my_graph.has_path('a', 'd'))
