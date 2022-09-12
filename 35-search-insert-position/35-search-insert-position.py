@@ -1,18 +1,17 @@
 class Solution:
-    def searchInsert(self, arr: List[int], target: int) -> int:
-        size = len(arr)
+    def searchInsert(self, arr, target):
         left = 0
-        right = size - 1
+        right = len(arr) - 1
 
         while left <= right:
-            mid = int((left + right)/2)
-            if target == arr[mid]:
-                return mid
+            mid = (left + right) // 2
+            if target > arr[mid]:
+                left = mid + 1
             elif target < arr[mid]:
                 right = mid - 1
             else:
-                left = mid + 1
-                
+                return mid
+
         if target < arr[mid]:
             return mid
         return mid + 1
