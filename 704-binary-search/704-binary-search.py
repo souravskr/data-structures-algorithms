@@ -5,7 +5,7 @@ class Solution:
         right = size - 1
         
         while left <= right:
-            mid = int((left + right) / 2)
+            mid = (left + right) // 2
             
             if target > nums[mid]:
                 left = mid + 1
