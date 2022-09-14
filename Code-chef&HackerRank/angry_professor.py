@@ -80,3 +80,4 @@ def beautiful_day(i, j, k):
 
 
 print(beautiful_day(20, 23, 6))
+
