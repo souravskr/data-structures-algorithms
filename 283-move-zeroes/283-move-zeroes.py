@@ -3,8 +3,9 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
-        count_zeros = nums.count(0)
-        for i in range(count_zeros):
-            nums.remove(0)
-            nums.append(0)
+        fast = 0
+        for slow in range(len(nums)):
+            if nums[slow] != 0:
+                nums[slow], nums[fast] = nums[fast], nums[slow]
+                fast += 1
         return nums
