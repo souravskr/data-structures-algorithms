@@ -10,8 +10,8 @@ class Solution:
         """
         
         # Find Middle of the List
-        slow = fast = head
-        while fast.next and fast.next.next:
+        slow, fast = head, head.next
+        while fast and fast.next:
             slow = slow.next
             fast = fast.next.next
             
@@ -28,9 +28,11 @@ class Solution:
         head1, head2 = head, prev
         while head2:
             temp = head1.next
+            temp1 = head2.next
             head1.next = head2
-            head1 = head2
-            head2 = temp
+            head2.next = temp
+            head1 = temp
+            head2 = temp1
     
         # Solution: 1
 #         s = head
