@@ -25,41 +25,11 @@ class Solution:
         slow.next = None
  
         # Merge first and second half of the list
-        head1, head2 = head, prev
-        while head2:
-            temp = head1.next
-            temp1 = head2.next
-            head1.next = head2
-            head2.next = temp
-            head1 = temp
-            head2 = temp1
+        first_part, second_part = head, prev
+        while second_part:
+            temp_1, temp_2 = first_part.next, second_part.next
+            first_part.next = second_part
+            second_part.next = temp_1
+            first_part = temp_1
+            second_part = temp_2
     
-        # Solution: 1
-#         s = head
-#         f = head.next
-        
-#         while f and f.next:
-#             s = s.next
-#             f = f.next.next
-        
-#         temp = s.next
-#         s.next = None
-#         before = None
-        
-#         while temp:
-#             after = temp.next
-#             temp.next = before
-#             before = temp
-#             temp = after
-        
-#         first = head
-#         second = before
-        
-#         while second:
-#             temp_1 = first.next
-#             temp_2 = second.next
-#             first.next = second
-#             second.next = temp_1
-#             first = temp_1 
-#             second = temp_2
-        
