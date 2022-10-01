@@ -16,5 +16,4 @@ class Solution:
                 stack.append(c)
         if stack:
             return False
-        else:
-            return True
+        return True
