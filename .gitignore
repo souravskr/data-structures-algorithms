@@ -257,4 +257,4 @@ dmypy.json
 cython_debug/
 
 # Intelij Idea Folder
-.idea/
+.idea
