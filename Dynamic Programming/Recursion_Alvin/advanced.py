@@ -23,3 +23,24 @@ def arr_sum(nums, index=0):
 
 
 print(arr_sum([1, 2, 3, 4]))
+
+
+def fibo(n):
+    if n <= 2:
+        return 1
+    return fibo(n - 1) + fibo(n - 2)
+
+
+def fibo_iterative(n):
+    res = []
+    for i in range(n):
+        if i == 0 or i == 1:
+            res.append(1)
+        else:
+            last_item = res[-1] + res[-2]
+            res.append(last_item)
+    return res[-1]
+
+
+print(fibo_iterative(40))
+print(fibo(40))
