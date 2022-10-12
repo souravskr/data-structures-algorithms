@@ -1,8 +1,8 @@
 class Solution:
     def isPowerOfTwo(self, n: int) -> bool:
-        for i in range(n):
+        i = 0
+        while 2 ** i <= n:
             if 2 ** i == n:
                 return True
-            elif 2 ** i > n:
-                return False
+            i += 1
         return False
