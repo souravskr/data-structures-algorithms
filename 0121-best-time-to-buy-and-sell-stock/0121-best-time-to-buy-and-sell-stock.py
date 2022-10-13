@@ -8,7 +8,5 @@ class Solution:
             if b > s:
                 b = s
             p = max(p, s - b)
-            if i < len(prices) -1:
-                s = prices[i + 1]
         return p
         
