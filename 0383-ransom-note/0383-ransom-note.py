@@ -8,9 +8,23 @@ class Solution:
                 res += c
                 str1_dict[c] -= 1
                 str2_dict[c] -= 1
+            else:
+                return False
         if res == str1:
             return True
         return False
+    
+        # str1_dict = Counter(str1)
+        # str2_dict = Counter(str2)
+        # res = ''
+        # for c in str1:
+        #     if str1_dict[c] <= str2_dict[c]:
+        #         res += c
+        #         str1_dict[c] -= 1
+        #         str2_dict[c] -= 1
+        # if res == str1:
+        #     return True
+        # return False
     
     
     
