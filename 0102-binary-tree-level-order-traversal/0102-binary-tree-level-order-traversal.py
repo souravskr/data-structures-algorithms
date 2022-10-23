@@ -7,13 +7,14 @@
 class Solution:
     def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
         res = []
-        queue = [root]
+        queue = collections.deque()
+        queue.append(root)
         
         while queue:
             q_len = len(queue)
             level = []
             for i in range(q_len):
-                cur = queue.pop(0)
+                cur = queue.popleft()
                 if cur:
                     level.append(cur.val)
                     queue.append(cur.left)
