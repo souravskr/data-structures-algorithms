@@ -3,17 +3,18 @@ package main
 import (
 	"fmt"
 	"net/http"
+	"time"
 )
 
 func checkStatus(link string, c chan string) {
 	_, err := http.Get(link)
 	if err != nil {
 		fmt.Printf("%s 🌎 is down!\n", link)
-		c <- "Down"
+		c <- link
 		return
 	}
 	fmt.Printf("%s 🌎 is up!\n", link)
-	c <- "Up"
+	c <- link
 }
 func main() {
 	urls := []string{
@@ -27,7 +28,10 @@ func main() {
 	for _, url := range urls {
 		go checkStatus(url, c)
 	}
-	for i := 0; i < len(urls); i++ {
-		fmt.Println(<-c)
+	for l := range c {
+		go func(link string) {
+			time.Sleep(time.Second)
+			checkStatus(link, c)
+		}(l)
 	}
 }
